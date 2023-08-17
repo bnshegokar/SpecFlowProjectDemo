@@ -1,0 +1,20 @@
+﻿internal void selectBrowser(string Type)
+        {
+            switch (Type)
+            {
+                case "Chrome":
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.AddArguments("--start-maximized");
+                    driver.Navigate().GoToUrl("https://www.guru99.com/");
+                    break;
+                case "Edge":
+                    EdgeOptions edgeOptions = new EdgeOptions();
+                   // edgeOptions.PlatformName = "Windows 10";
+                    edgeOptions.AddArguments("--start-maximized");
+                    driver.Navigate().GoToUrl("https://www.guru99.com/");
+                   // driver = new RemoteWebDriver(new Uri("http://192.168.0.101:4444"), edgeOptions);
+                    break;
+                default:
+                    break;
+            }
+        }

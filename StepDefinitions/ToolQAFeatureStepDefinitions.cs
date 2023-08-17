@@ -8,12 +8,16 @@ namespace SpecFlowProjectDemo.StepDefinitions
     [Binding]
     public class ToolQAFeatureStepDefinitions
     {
-        IWebDriver driver;
+        private IWebDriver driver;
+        
+        public ToolQAFeatureStepDefinitions(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
         [Given(@"Open the Browser")]
         public void GivenOpenTheBrowser()
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
+           
         }
         [When(@"Enter URL")]
         public void WhenEnterURL()
@@ -24,7 +28,7 @@ namespace SpecFlowProjectDemo.StepDefinitions
         public void ThenSearchSpecflowBDD()
         {
             driver.FindElement(By.Name("search")).SendKeys("Specflow BDD");
-            driver.Quit();
+           // driver.Quit();
         }
     }
 }
